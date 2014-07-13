@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 		std::cout << "JSExec usage" << std::endl
 			      << "------------" << std::endl
 				  << "JSExec <fileName>" << std::endl;
+      return -1;
 	}
 
 	std::string script;
