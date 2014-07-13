@@ -1,0 +1,8 @@
+both successful
+#
+gcc -DXP_UNIX -O0 -c -I/opt/js/src/ test.c
+gcc  -o test test.o -ljs -L/opt/js/src/Linux_All_DBG.OBJ/
+
+#
+gcc -DXP_UNIX -I/opt/js/src -o example test.c  -L/opt/js/src/Linux_All_DBG.OBJ -ljs -lm
+
