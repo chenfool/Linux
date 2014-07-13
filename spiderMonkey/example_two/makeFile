@@ -1,0 +1,1 @@
+g++ -DXP_UNIX -I/opt/js/src -I/opt/github/linux/spiderMonkey/example_two  -o exapleTwo main.cpp JSCustomer.cpp -L/opt/js/src/Linux_All_DBG.OBJ -ljs -lm
