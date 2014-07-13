@@ -16,55 +16,56 @@ JSPropertySpec JSCustomer::Customer_properties[] =
 { 
     { "name", name_prop, JSPROP_ENUMERATE },
     { "age", age_prop, JSPROP_ENUMERATE },
-	{ 0 }
+	 { 0 }
 };
 
 JSFunctionSpec JSCustomer::Customer_methods[] = 
 {
     { "computeReduction", computeReduction, 1, 0, 0 },
-	{ 0, 0, 0, 0, 0 }
+	 { 0, 0, 0, 0, 0 }
 };
 
 JSClass JSCustomer::Customer_class = 
 { 
 	"Customer", JSCLASS_HAS_PRIVATE, JS_PropertyStub, JS_PropertyStub,
 	JSCustomer::JSGetProperty, JSCustomer::JSSetProperty,
-    JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, JSCustomer::JSDestructor
+   JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, JSCustomer::JSDestructor
 };
 
 JSBool JSCustomer::JSGetProperty(JSContext *cx, JSObject *obj, jsval id,
 								 jsval *vp)
 {
-    if (JSVAL_IS_INT(id)) 
+   if (JSVAL_IS_INT(id)) 
 	{
-		JSCustomer *p = (JSCustomer *) JS_GetPrivate(cx, obj);
-		Customer *customer = p->getCustomer();
-        switch (JSVAL_TO_INT(id)) 
+	   JSCustomer *p = (JSCustomer *) JS_GetPrivate(cx, obj);
+	   Customer *customer = p->getCustomer();
+      switch (JSVAL_TO_INT(id)) 
 		{
 		case name_prop:
 			{
 				std::string name = customer->GetName();
 				JSString *str = JS_NewStringCopyN(cx, name.c_str(), name.length());
 				*vp = STRING_TO_JSVAL(str);
-				break;
+			  	break;
 			}
 		case age_prop:
-			*vp = INT_TO_JSVAL(customer->GetAge());
-			break;
-        }
-    }
-    return JS_TRUE;
+			   *vp = INT_TO_JSVAL(customer->GetAge());
+			   break;
+      }
+   }
+   //Customer::Customer_properties
+   return JS_TRUE;
 }
 
 JSBool JSCustomer::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, 
 								 jsval *vp)
 {
-    if (JSVAL_IS_INT(id)) 
-	{
+   if (JSVAL_IS_INT(id)) 
+   {
 		JSCustomer *p = (JSCustomer *) JS_GetPrivate(cx, obj);
 		Customer *customer = p->getCustomer();
 
-        switch (JSVAL_TO_INT(id)) 
+      switch (JSVAL_TO_INT(id)) 
 		{
 		case name_prop:
 			{
@@ -74,11 +75,11 @@ JSBool JSCustomer::JSSetProperty(JSContext *cx, JSObject *obj, jsval id,
 				break;
 			}
 		case age_prop:
-			customer->SetAge(JSVAL_TO_INT(*vp));
-			break;
+			   customer->SetAge(JSVAL_TO_INT(*vp));
+			   break;
 		}
-    }
-    return JS_TRUE;
+   }
+   return JS_TRUE;
 }
 
 JSBool JSCustomer::JSConstructor(JSContext *cx, JSObject *obj, uintN argc,
@@ -100,7 +101,7 @@ void JSCustomer::JSDestructor(JSContext *cx, JSObject *obj)
 
 JSObject *JSCustomer::JSInit(JSContext *cx, JSObject *obj, JSObject *proto)
 {
-    JSObject *newProtoObj = JS_InitClass(cx, obj, proto, &Customer_class, 
+   JSObject *newProtoObj = JS_InitClass(cx, obj, proto, &Customer_class, 
 							  			 JSCustomer::JSConstructor, 0,
 										 NULL, JSCustomer::Customer_methods,
 										 NULL, NULL);

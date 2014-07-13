@@ -14,7 +14,7 @@ JSClass globalClass =
   JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub,  JS_FinalizeStub
 };
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	if ( argc < 2 )
 	{
@@ -39,7 +39,8 @@ void main(int argc, char *argv[])
 		std::cout << "JSExec error" << std::endl
 			      << "------------" << std::endl
 				  << "Can't open scriptfile " << argv[1] << std::endl;
-		exit(0);
+		//exit(0);
+      return 0;
 	}
 
 	JSRuntime *rt = JS_Init(1000000L);

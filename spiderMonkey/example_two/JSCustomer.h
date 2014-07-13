@@ -53,11 +53,11 @@ public:
 	 */
 	static JSObject* JSInit(JSContext *cx, JSObject *obj, JSObject *proto = NULL);
 
-    static JSBool computeReduction(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
+   static JSBool computeReduction(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 
 	static JSClass Customer_class;
 
-    void setCustomer(Customer *customer)
+   void setCustomer(Customer *customer)
 	{
 		m_pCustomer = customer; 
 	}
@@ -73,7 +73,7 @@ private:
 
 	Customer *m_pCustomer;
 
-    static JSPropertySpec Customer_properties[];
+   static JSPropertySpec Customer_properties[];
 	static JSFunctionSpec Customer_methods[];
 
 	enum
