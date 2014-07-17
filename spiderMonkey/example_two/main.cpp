@@ -1,5 +1,4 @@
 #define XP_PC
-
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -19,8 +18,8 @@ int main(int argc, char *argv[])
 	if ( argc < 2 )
 	{
 		std::cout << "JSExec usage" << std::endl
-			      << "------------" << std::endl
-				  << "JSExec <fileName>" << std::endl;
+                << "------------" << std::endl
+                << "JSExec <fileName>" << std::endl;
       return -1;
 	}
 
@@ -38,8 +37,8 @@ int main(int argc, char *argv[])
 	else
 	{
 		std::cout << "JSExec error" << std::endl
-			      << "------------" << std::endl
-				  << "Can't open scriptfile " << argv[1] << std::endl;
+                << "------------" << std::endl
+                << "Can't open scriptfile " << argv[1] << std::endl;
 		//exit(0);
       return 0;
 	}
@@ -51,7 +50,7 @@ int main(int argc, char *argv[])
 		JSContext *cx = JS_NewContext(rt, 8192);
 		if ( cx )
 		{
-		    JSObject *globalObj = JS_NewObject(cx, &globalClass, 0, 0);
+         JSObject *globalObj = JS_NewObject(cx, &globalClass, 0, 0);
 			if ( globalObj )
 			{
 				JS_InitStandardClasses(cx, globalObj);
@@ -76,21 +75,21 @@ int main(int argc, char *argv[])
 				else
 				{
 					std::cout << "JSExec error" << std::endl
-							  << "------------" << std::endl
-							  << "Error in JavaScript file " << argv[1] << std::endl;
+                         << "------------" << std::endl
+                         << "Error in JavaScript file " << argv[1] << std::endl;
 				}
 			}
 			else
 			{
 				std::cout << "Unable to create the global object";
 			}
-		    JS_DestroyContext(cx);
+         JS_DestroyContext(cx);
 		}
 		else
 		{
 			std::cout << "Unable to create a context";
 		}
-	    JS_Finish(rt);
+      JS_Finish(rt);
 	}
 	else
 	{

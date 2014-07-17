@@ -106,7 +106,7 @@ JSObject *JSCustomer::JSInit(JSContext *cx, JSObject *obj, JSObject *proto)
 										 NULL, JSCustomer::Customer_methods,
 										 NULL, NULL);
 	JS_DefineProperties(cx, newProtoObj, JSCustomer::Customer_properties);
-    return newProtoObj;
+   return newProtoObj;
 }
 
 JSBool JSCustomer::computeReduction(JSContext *cx, JSObject *obj, uintN argc,
