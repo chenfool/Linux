@@ -9,8 +9,17 @@
 :map <C-j> : res +1<CR>
 :map <C-k> : res -1<CR>
 
-colorscheme evening
+set ruler
 set tabstop=3
-set background=dark
 set incsearch
 set hlsearch
+
+syntax on
+
+set tags=/Users/chenfool/mnt/spark_app_2/tags
+
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let Tlist_Auto_Open=1
+let Tlist_Use_Right_Window=1
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Exit_OnlyWindow=1
