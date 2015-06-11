@@ -8,6 +8,8 @@
 :map <C-l> : vertical res +1<CR>
 :map <C-j> : res +1<CR>
 :map <C-k> : res -1<CR>
+:map yy  <C-]>                                                                                   
+:map tt  <C-t>  
 
 set ruler
 set tabstop=3
