@@ -15,7 +15,7 @@ set ruler
 set tabstop=3
 set incsearch
 set hlsearch
-:set paste
+set paste
 
 syntax on
 
